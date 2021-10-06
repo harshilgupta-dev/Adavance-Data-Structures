@@ -40,6 +40,17 @@ class SinglyLinkedList{
             }
         }
 
+        int deleteFirst(){
+            if(head==NULL)
+                return -1;
+            ListNode *t=head;
+            head=head->next;
+            int prevData=t->data;
+            delete t;
+            size--;
+            return prevData;
+        }
+
         void display(){
             ListNode *p=head;
 
@@ -86,6 +97,8 @@ int main(){
     SinglyLinkedList l(arr,6);
     l.insertAtFirst(1);
     l.insertAtLast(62);
+    l.display();
+    cout<<l.deleteFirst()<<endl;
     l.display();
     cout<<l.length()<<endl;
 
