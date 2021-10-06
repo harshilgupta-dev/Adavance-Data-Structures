@@ -61,6 +61,22 @@ class SinglyLinkedList{
             head=p;
             size++;
         }
+        void insertAtLast(int element){
+            ListNode *p=head;
+            ListNode *t=new ListNode;
+            t->data=element;
+            t->next=NULL;
+            if(head==NULL){
+                head=t;
+                size++;
+                return;
+            }
+            while(p->next!=NULL){
+                p=p->next;
+            }
+            p->next=t;
+            size++;
+        }
 };
 
 int main(){
@@ -69,6 +85,7 @@ int main(){
     
     SinglyLinkedList l(arr,6);
     l.insertAtFirst(1);
+    l.insertAtLast(62);
     l.display();
     cout<<l.length()<<endl;
 
