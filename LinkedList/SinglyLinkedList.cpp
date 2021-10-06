@@ -53,6 +53,14 @@ class SinglyLinkedList{
         int length(){
             return size;
         }
+
+        void insertAtFirst(int element){
+            ListNode *p=new ListNode;
+            p->data=element;
+            p->next=head;
+            head=p;
+            size++;
+        }
 };
 
 int main(){
@@ -60,9 +68,10 @@ int main(){
     int arr[]={10,60,70,30,80,100};
     
     SinglyLinkedList l(arr,6);
-
+    l.insertAtFirst(1);
     l.display();
     cout<<l.length()<<endl;
+
 
     return 0;
 }
