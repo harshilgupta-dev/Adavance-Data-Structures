@@ -49,6 +49,10 @@ class SinglyLinkedList{
             }
             cout<<"NULL"<<endl;
         }
+
+        int length(){
+            return size;
+        }
 };
 
 int main(){
@@ -58,6 +62,7 @@ int main(){
     SinglyLinkedList l(arr,6);
 
     l.display();
+    cout<<l.length()<<endl;
 
     return 0;
 }
