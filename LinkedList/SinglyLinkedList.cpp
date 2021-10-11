@@ -40,17 +40,6 @@ class SinglyLinkedList{
             }
         }
 
-        int deleteFirst(){
-            if(head==NULL)
-                return -1;
-            ListNode *t=head;
-            head=head->next;
-            int prevData=t->data;
-            delete t;
-            size--;
-            return prevData;
-        }
-
         void display(){
             ListNode *p=head;
 
@@ -87,6 +76,31 @@ class SinglyLinkedList{
             }
             p->next=t;
             size++;
+        }
+        int deleteFirst(){
+            if(head==NULL)
+                return -1;
+            ListNode *t=head;
+            head=head->next;
+            int prevData=t->data;
+            delete t;
+            size--;
+            return prevData;
+        }
+
+        int deleteLast(){
+            if(head==NULL || head->next==NULL)
+                return head->data;
+            
+            ListNode *cur=head,*prev=NULL;
+            while(cur->next!=NULL){
+                prev=cur;
+                cur=cur->next;
+            }
+            int prevData=cur->data;
+            delete cur;
+            prev->next=NULL;
+            return prevData;
         }
 };
 
