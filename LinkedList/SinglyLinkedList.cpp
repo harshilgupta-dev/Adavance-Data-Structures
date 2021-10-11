@@ -100,7 +100,33 @@ class SinglyLinkedList{
             int prevData=cur->data;
             delete cur;
             prev->next=NULL;
+            size--;
             return prevData;
+        }
+
+        void insert(int pos,int element){
+            if(pos>size){
+                cout<<"Position Not found"<<endl;
+                return;
+            }
+            ListNode *newNode=new ListNode;
+            newNode->data=element;
+            if(pos==1){
+                newNode->next=head;
+                head=newNode;
+                size++;
+                return;
+            }
+            ListNode *prev=head;
+            int posCount=1;
+            while(posCount<pos-1){
+                prev=prev->next;
+                posCount++;
+            }
+            ListNode *cur=prev->next;
+            newNode->next=cur;
+            prev->next=newNode;
+            size++;
         }
 };
 
@@ -113,6 +139,10 @@ int main(){
     l.insertAtLast(62);
     l.display();
     cout<<l.deleteFirst()<<endl;
+    l.display();
+    cout<<l.length()<<endl;
+    l.insert(1,26);
+    l.insert(2,50);
     l.display();
     cout<<l.length()<<endl;
 
