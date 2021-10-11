@@ -155,6 +155,20 @@ class SinglyLinkedList{
             size--;
             return prevData;
         }
+
+        int middleNode(){
+            if(head==NULL && head->next==NULL){
+                return head->data;
+            }
+            ListNode *slowPtr=head;
+            ListNode *fastPtr=head;
+
+            while(fastPtr!=NULL && fastPtr->next!=NULL){
+                slowPtr=slowPtr->next;
+                fastPtr=fastPtr->next->next;
+            }
+            return slowPtr->data;
+        }
 };
 
 int main(){
